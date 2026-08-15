@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════
+   PARCHMENT THEME — CSS-First Tailwind v4 Config
+   ══════════════════════════════════════════════ */
+@theme {
+  /* ── Primary (Aged Gold) ── */
+  --color-primary:                  #735c00;
+  --color-primary-fixed:            #ffe088;
+  --color-primary-fixed-dim:        #e9c349;
+  --color-primary-container:        #d4af37;
+  --color-on-primary:               #ffffff;
+  --color-on-primary-fixed:         #241a00;
+  --color-on-primary-fixed-variant: #574500;
+  --color-on-primary-container:     #554300;
+  --color-inverse-primary:          #e9c349;
+  --color-surface-tint:             #735c00;
+
+  /* ── Secondary (Forest Green) ── */
+  --color-secondary:                    #4d644b;
+  --color-secondary-fixed:              #d0eaca;
+  --color-secondary-fixed-dim:          #b4ceaf;
+  --color-secondary-container:          #cde7c7;
+  --color-on-secondary:                 #ffffff;
+  --color-on-secondary-fixed:           #0b200c;
+  --color-on-secondary-fixed-variant:   #364c35;
+  --color-on-secondary-container:       #51684f;
+
+  /* ── Tertiary (Arcane Purple) ── */
+  --color-tertiary:                     #6e4f9a;
+  --color-tertiary-fixed:               #eddcff;
+  --color-tertiary-fixed-dim:           #d8baff;
+  --color-tertiary-container:           #c6a3f6;
+  --color-on-tertiary:                  #ffffff;
+  --color-on-tertiary-fixed:            #280253;
+  --color-on-tertiary-fixed-variant:    #563781;
+  --color-on-tertiary-container:        #54357f;
+
+  /* ── Error (Wax Red) ── */
+  --color-error:              #ba1a1a;
+  --color-error-container:    #ffdad6;
+  --color-on-error:           #ffffff;
+  --color-on-error-container: #93000a;
+
+  /* ── Surface & Background ── */
+  --color-background:                  #fff9ed;
+  --color-on-background:               #1f1c0b;
+  --color-surface:                     #fff9ed;
+  --color-surface-dim:                 #e2dabf;
+  --color-surface-bright:              #fff9ed;
+  --color-surface-variant:             #ebe2c8;
+  --color-surface-container-lowest:    #ffffff;
+  --color-surface-container-low:       #fcf3d8;
+  --color-surface-container:           #f7eed2;
+  --color-surface-container-high:      #f1e8cd;
+  --color-surface-container-highest:   #ebe2c8;
+  --color-on-surface:                  #1f1c0b;
+  --color-on-surface-variant:          #4d4635;
+  --color-inverse-surface:             #35301e;
+  --color-inverse-on-surface:          #faf0d5;
+
+  /* ── Outline ── */
+  --color-outline:         #7f7663;
+  --color-outline-variant: #d0c5af;
+
+  /* ── Font Families ── */
+  --font-garamond: var(--garamond-font, "EB Garamond", Georgia, serif);
+  --font-serif4:   var(--serif4-font, "Source Serif 4", Georgia, serif);
+
+  /* ── Border Radius ── */
+  --radius:     0.125rem;
+  --radius-sm:  0.125rem;
+  --radius-md:  0.25rem;
+  --radius-lg:  0.5rem;
+  --radius-xl:  0.75rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* ════════════════════════════
+   BASE STYLES
+   ════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-garamond);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  /* Parchment noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+/* ════════════════════════════
+   PARCHMENT CARD
+   ════════════════════════════ */
+.parchment-box {
+  position: relative;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-outline-variant);
+  box-shadow:
+    0 10px 30px -10px rgba(115, 92, 0, 0.12),
+    inset 0 0 24px rgba(115, 92, 0, 0.04);
+}
+
+.parchment-box::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--color-outline-variant);
+  opacity: 0.45;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ════════════════════════════
+   WAX SEAL BUTTON
+   ════════════════════════════ */
+.wax-seal {
+  background: linear-gradient(135deg, var(--color-error) 0%, var(--color-on-error-container) 100%);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.45),
+    0 4px 12px rgba(186, 26, 26, 0.35);
+  border: 2px solid var(--color-error);
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.wax-seal::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.wax-seal:hover {
+  box-shadow:
+    inset 0 0 16px rgba(255, 255, 255, 0.15),
+    0 0 24px rgba(186, 26, 26, 0.55);
+  transform: scale(1.06);
+}
+
+/* ════════════════════════════
+   TEXT GLOW HOVER
+   ════════════════════════════ */
+.glow-hover {
+  transition: all 0.35s ease;
+}
+
+.glow-hover:hover {
+  text-shadow:
+    0 0 18px rgba(212, 175, 55, 0.55),
+    0 0 36px rgba(212, 175, 55, 0.2);
+  color: var(--color-primary);
+}
+
+/* ════════════════════════════
+   ORNATE DIVIDER
+   ════════════════════════════ */
+.ornate-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ornate-divider::before,
+.ornate-divider::after {
+  content: '';
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-outline), transparent);
+  flex-grow: 1;
+  max-width: 180px;
+}
+
+/* ════════════════════════════
+   SCROLLBAR
+   ════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-surface-container-low); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-outline); }
+
+/* ════════════════════════════
+   KEYFRAME ANIMATIONS
+   ════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.65; transform: scale(1.04); }
+}
+
+@keyframes shimmerText {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.animate-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-primary-container) 45%,
+    var(--color-primary) 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 4s linear infinite;
+}
