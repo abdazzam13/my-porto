@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from '@/app/lib/languageContext';
+
 export default function RootLayout({
   children,
 }: {
@@ -50,7 +52,9 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${sourceSerif4.variable}`}
     >
-      <body className="antialiased min-h-screen flex flex-col">{children}</body>
+      <body className="antialiased min-h-screen flex flex-col">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
