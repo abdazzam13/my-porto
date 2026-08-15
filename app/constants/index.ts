@@ -51,6 +51,8 @@ export interface UiDictionary {
   viewDetails: string;
   shiftHeld: string;
   activeShift: string;
+  whatsApp: string;
+  emailMe: string;
 }
 
 export const UI_STRINGS: Record<Language, UiDictionary> = {
@@ -77,30 +79,34 @@ export const UI_STRINGS: Record<Language, UiDictionary> = {
     viewDetails: 'View Details',
     shiftHeld: 'Active Period',
     activeShift: 'Active Shift',
+    whatsApp: 'Direct Message (WhatsApp)',
+    emailMe: 'Send Inscription (Email)',
   },
   id: {
-     portfolioOf: '✦ Portofolio ✦',
-  summonMe: 'Hubungi\nSaya',
-  summonMeSub: 'Hubungi Saya',
-  contact: 'Kontak',
-  theArcaneArts: 'Seni & Keahlian',
-  theJourney: 'Perjalanan Sang Pahlawan',
-  portalToTheRealms: 'Gerbang Karya',
-  scholarlyPursuits: 'Jejak Akademik',
-  theHallsOfLearning: 'Ruang Pembelajaran',
-  scrollOfMastery: 'Gulungan Penguasaan',
-  ancientTomes: 'Kitab-Kitab Penguasaan',
-  allRealms: 'Semua Karya',
-  traverseRealm: 'Jelajahi Karya',
-  gpa: 'IPK',
-  copyrightRole: 'Sang Alkemis Digital',
-  openMenu: 'Buka menu',
-  closeMenu: 'Tutup menu',
-  previousRealm: 'Karya Sebelumnya',
-  nextRealm: 'Karya Selanjutnya',
-  viewDetails: 'Lihat Detail',
-  shiftHeld: 'Periode Aktif',
-  activeShift: 'Shift Aktif',
+    portfolioOf: '✦ Portofolio dari ✦',
+    summonMe: 'Hubungi\nSaya',
+    summonMeSub: 'Hubungi Saya',
+    contact: 'Kontak',
+    theArcaneArts: 'Seni Sihir & Keahlian',
+    theJourney: 'Perjalanan Sang Pahlawan',
+    portalToTheRealms: 'Gerbang Mahakarya',
+    scholarlyPursuits: 'Jejak Akademik',
+    theHallsOfLearning: 'Kuil Pengetahuan',
+    scrollOfMastery: 'Gulungan Penguasaan',
+    ancientTomes: 'Kitab Sertifikasi Kuno',
+    allRealms: 'Semua Karya',
+    traverseRealm: 'Kunjungi Realm',
+    gpa: 'IPK',
+    copyrightRole: 'Sang Alkemis Digital',
+    openMenu: 'Buka menu',
+    closeMenu: 'Tutup menu',
+    previousRealm: 'Realm Sebelumnya',
+    nextRealm: 'Realm Selanjutnya',
+    viewDetails: 'Lihat Rincian',
+    shiftHeld: 'Periode Aktif',
+    activeShift: 'Shift Aktif',
+    whatsApp: 'Kirim Pesan (WhatsApp)',
+    emailMe: 'Kirim Surat (Email)',
   },
 };
 

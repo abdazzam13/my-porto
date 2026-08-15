@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, Github, Linkedin, MapPin, ChevronDown } from 'lucide-react';
+import { Mail, Github, Linkedin, MapPin, ChevronDown, MessageCircle } from 'lucide-react';
 import { ParchmentBox } from '@/app/components/ui/ParchmentBox';
 import { useLanguage } from '@/app/lib/languageContext';
 
@@ -13,6 +13,9 @@ export function HeroSection() {
     const el = document.getElementById('arcane-arts');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const whatsappUrl = `https://wa.me/${profile.contact.phone.replace(/\D/g, '')}`;
+  const emailUrl = `mailto:${profile.contact.email}`;
 
   return (
     <section
@@ -70,28 +73,30 @@ export function HeroSection() {
             {profile.summary}
           </p>
 
-          {/* Contact Row 1: phone + email */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-6 sm:mt-8">
+          {/* Contact Row 1: WhatsApp (masked) + Email (masked) */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
             <a
-              href={`tel:${profile.contact.phone}`}
-              id="contact-phone"
-              className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group font-serif4 text-xs sm:text-sm tracking-wide"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="contact-whatsapp"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary hover:text-primary transition-all group font-serif4 text-xs sm:text-sm tracking-wide shadow-sm"
             >
-              <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
-              {profile.contact.phone}
+              <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              {ui.whatsApp}
             </a>
             <a
-              href={`mailto:${profile.contact.email}`}
+              href={emailUrl}
               id="contact-email"
-              className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group font-serif4 text-xs sm:text-sm tracking-wide break-all"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-surface-variant hover:bg-surface-container border border-outline-variant text-on-surface-variant hover:text-primary transition-all group font-serif4 text-xs sm:text-sm tracking-wide shadow-sm"
             >
               <Mail className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
-              {profile.contact.email}
+              {ui.emailMe}
             </a>
           </div>
 
           {/* Contact Row 2: github + linkedin + location */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-3">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2.5 mt-4">
             <a
               href={profile.contact.github.url}
               target="_blank"
